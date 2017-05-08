@@ -21,14 +21,14 @@ class ColorContainer extends React.Component{
                             <option>Select Background Color</option>
                             <option value="#FFFFFF">White</option>
                             <option value="#000000">Black</option>
-                            {
+                            {/*{
                                 _.map(colors,(options, colorName)=>{
                                     return <option key={colorName} value={options.option2}>{colorName}</option>
                                 })
-                            }
+                            }*/}
                         </select>
                     </div>
-                <div className="innerDiv">
+                {/*<div className="innerDiv">
                     {
                     _.map(colors,(options, colorName)=>{
                         return <Color key={colorName} 
@@ -36,9 +36,9 @@ class ColorContainer extends React.Component{
                                     options={options} 
                                     optionClickHandler={optionClickHandler}
                                 />
-                    })
-                }
-                </div>
+                        })
+                    }
+                </div>*/}
             </div>
         )
     }

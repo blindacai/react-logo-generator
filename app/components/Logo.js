@@ -5,16 +5,17 @@ class Logo extends React.Component{
         super(props);
     }
 
-    __setEllipse(color, width){
-        let logoSVG = document.getElementById("logo-svg");
-        let circle = logoSVG.querySelector("circle");
-        let paths = logoSVG.querySelectorAll("path");
-        paths.forEach((path)=>{
-            path.style.stroke = color;
-            path.style.strokeWidth = width;
-        });
-        circle.style.fill = color;
-    }
+    // __setEllipse(color, width){
+    //     let logoSVG = document.getElementById("logo-svg");
+    //     let circle = logoSVG.querySelector("circle");
+    //     let paths = logoSVG.querySelectorAll("path");
+    //     paths.forEach((path)=>{
+    //         path.style.stroke = color;
+    //         path.style.strokeWidth = width;
+    //     });
+    //     circle.style.fill = color;
+    // }
+
     __setBackground(color){
         let logoSVG = document.getElementById("logo-svg");
         let rect = logoSVG.querySelector("rect");
@@ -23,55 +24,55 @@ class Logo extends React.Component{
     componentWillUpdate(nextProps,nextState){
         Object.assign(this.props.svgColorObj,nextProps.svgColorObj);
         let { strokeColor, strokeWidth, bgColor } = this.props.svgColorObj;
-        this.__setEllipse(strokeColor, strokeWidth);
+        //this.__setEllipse(strokeColor, strokeWidth);
         this.__setBackground(bgColor);
-        this.__downloadSVG();
-        this.__downlaodImage();
+        // this.__downloadSVG();
+        // this.__downlaodImage();
     }
 
     componentDidMount(){
         let { strokeColor, strokeWidth, bgColor } = this.props.svgColorObj;
-        this.__setEllipse(strokeColor, strokeWidth);
+        // this.__setEllipse(strokeColor, strokeWidth);
         this.__setBackground(bgColor);
-        this.__downloadSVG();
-        this.__downlaodImage();
+        // this.__downloadSVG();
+        // this.__downlaodImage();
         
     }
 
-    __downloadSVG(){
-        let logoSVG = document.getElementById("logo-svg");
-        let svgData = logoSVG.outerHTML;
-        let svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});
-        let svgUrl = URL.createObjectURL(svgBlob);
-        let downloadLink = document.getElementById("downloadLink");
-        downloadLink.href = svgUrl;
-        downloadLink.download = "react-logo.svg";
-    }
+    // __downloadSVG(){
+    //     let logoSVG = document.getElementById("logo-svg");
+    //     let svgData = logoSVG.outerHTML;
+    //     let svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});
+    //     let svgUrl = URL.createObjectURL(svgBlob);
+    //     let downloadLink = document.getElementById("downloadLink");
+    //     downloadLink.href = svgUrl;
+    //     downloadLink.download = "react-logo.svg";
+    // }
 
-    __downlaodImage() {
-        let svg = document.getElementById("logo-svg");
-        var svgSize = svg.getBoundingClientRect();
-        var svgData = new XMLSerializer().serializeToString(svg);
+    // __downlaodImage() {
+    //     let svg = document.getElementById("logo-svg");
+    //     var svgSize = svg.getBoundingClientRect();
+    //     var svgData = new XMLSerializer().serializeToString(svg);
 
-        var canvas = document.createElement("canvas");
-        var ctx = canvas.getContext("2d");
+    //     var canvas = document.createElement("canvas");
+    //     var ctx = canvas.getContext("2d");
 
-        var img = document.createElement("img");
+    //     var img = document.createElement("img");
 
-        var svgSize = svg.getBoundingClientRect();
-        canvas.width = svgSize.width;
-        canvas.height = svgSize.height;
+    //     var svgSize = svg.getBoundingClientRect();
+    //     canvas.width = svgSize.width;
+    //     canvas.height = svgSize.height;
 
-        img.setAttribute("src", "data:image/svg+xml;base64," + btoa(svgData));
+    //     img.setAttribute("src", "data:image/svg+xml;base64," + btoa(svgData));
 
-        img.onload = function () {
-            ctx.drawImage(img, 0, 0);
-            var imgsrc = canvas.toDataURL("image/png");
-            let a = document.getElementById("downloadLinkForImage");
-            a.href = imgsrc;
-            a.download = "react-logo.png";
-        };
-    }
+    //     img.onload = function () {
+    //         ctx.drawImage(img, 0, 0);
+    //         var imgsrc = canvas.toDataURL("image/png");
+    //         let a = document.getElementById("downloadLinkForImage");
+    //         a.href = imgsrc;
+    //         a.download = "react-logo.png";
+    //     };
+    // }
 
     render(){
         return(
