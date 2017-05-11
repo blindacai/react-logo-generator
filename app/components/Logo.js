@@ -21,7 +21,9 @@ class Logo extends React.Component{
         let rect = logoSVG.querySelector("rect");
         rect.style.fill = color;
     }
+
     componentWillUpdate(nextProps,nextState){
+        console.log("in will");
         Object.assign(this.props.svgColorObj,nextProps.svgColorObj);
         let { strokeColor, strokeWidth, bgColor } = this.props.svgColorObj;
         //this.__setEllipse(strokeColor, strokeWidth);
@@ -31,6 +33,7 @@ class Logo extends React.Component{
     }
 
     componentDidMount(){
+        console.log("in did");
         let { strokeColor, strokeWidth, bgColor } = this.props.svgColorObj;
         // this.__setEllipse(strokeColor, strokeWidth);
         this.__setBackground(bgColor);

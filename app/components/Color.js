@@ -11,26 +11,32 @@ class Color extends React.Component{
             showOptions: false
         }
     }
+
     onClickHandler(e){
         e.preventDefault();
         let x = !this.state.showOptions;
-        this.setState({showOptions: x})
+        this.setState({showOptions: x});
     };
+
     onClickOptionHandler(e){
         let selectedColor= e.target.textContent
-        this.props.optionClickHandler(selectedColor)
+        this.props.optionClickHandler(selectedColor);
     }
+
     render(){
         const {colorName, options} = this.props;
         return(
             <div className="colorOptions">
-                {this.state.showOptions ? <ul>
+                {this.state.showOptions ? 
+                 <ul>
                     {
                         _.map(options, (color, option)=>{
                             return <li key={option} style={{backgroundColor:color}} onClick={this.onClickOptionHandler}>{color}</li>
                         })
                     }
-                </ul>: null}
+                 </ul>: null}
+
+                 {/*react's inline style*/}
                 <button className="button" style={{backgroundColor:options.option2}} onClick ={this.onClickHandler}>{colorName}</button>
             </div>
         )

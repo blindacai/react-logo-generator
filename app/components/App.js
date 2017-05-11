@@ -15,7 +15,7 @@ class App extends React.Component{
             }
         }
         this.optionClickHandler = this.optionClickHandler.bind(this);
-        //this.backgroundChangeHandler = this.backgroundChangeHandler.bind(this);
+        this.backgroundChangeHandler = this.backgroundChangeHandler.bind(this);
     }
 
     optionClickHandler(value){
@@ -25,7 +25,7 @@ class App extends React.Component{
             })
         })
     };
-    
+
     backgroundChangeHandler(value){
         // this.setState({
         //     svgColorObj : Object.assign({},{

@@ -5,3 +5,5 @@ app/bundle.js
 npm-debug.log
 bundle.js
 build
+
+.idea/
